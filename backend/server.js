@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
-  //Allow us to parse JSON
+  //Allow us to parse JSON - our server is going to be sending and receiving json
 app.use(express.json());
 
 // Add uri with enviromental variable from the mongoDB dashboard
