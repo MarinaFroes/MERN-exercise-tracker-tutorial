@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DatePicker from "./DatePicker";
 
 class CreateExercise extends Component {
     // Add states equal to the fields of the mongoDB document and an extra users
@@ -96,6 +97,14 @@ class CreateExercise extends Component {
               className="form-control"
               value={this.state.duration}
               onChange={this.onChangeDuration}
+            />
+          </div>
+          <div className="form-group">
+            <label>Date:</label>
+            {/*  TODO: Create DatePicker */}
+            <DatePicker
+              value={this.state.date}
+              onChange={this.onChangeDate}
             />
           </div>
         </form>
