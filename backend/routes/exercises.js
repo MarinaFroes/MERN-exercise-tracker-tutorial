@@ -31,8 +31,9 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// '/:id' is a variable - id automatically created by mongoDB 
-// Return the info only of this id
+ 
+// Get the info only of a specific id
+// '/:id' is a variable - id is automatically created by mongoDB
 router.route('/:id').get((req, res) => {
   Exercise.findById(req.params.id)
     .then(exercise => res.json(exercise))
@@ -61,6 +62,5 @@ router.route('/update/:id').post((req, res) => {
     })
     .catch(err => res.status(400).json('Error: ' + err));
 });
-
 
 module.exports = router;
