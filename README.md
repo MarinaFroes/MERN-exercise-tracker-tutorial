@@ -1,5 +1,5 @@
 
-![Logo](./src/components/images/logo.png) 
+![Logo]("./src/images/logo.png") 
 # MERN Exercise Tracker Tutorial
 
 ## Motivation
@@ -29,9 +29,6 @@ $ npm install
 $ npm start
 ```
 ## References
-
-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- [React documentation](https://reactjs.org/).
 
 - Based on the [Freecodecamp tutorial](https://www.youtube.com/watch?v=7CqJlxBYj-M&t=2416s) by Beau Carnes.
 
