@@ -104,8 +104,15 @@ class CreateExercise extends Component {
             <label>Date:</label>
             {/*  TODO: Create DatePicker */}
             <DatePicker
-              value={this.state.date}
+              selected={this.state.date}
               onChange={this.onChangeDate}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Create Exercise Log"
+              className="btn btn-primary"
             />
           </div>
         </form>
