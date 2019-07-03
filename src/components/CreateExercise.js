@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist//react-datepicker.css"
 
@@ -15,7 +15,7 @@ class CreateExercise extends Component {
   
   componentDidMount() {
     //  Get request to database 
-    Axios.get("http://localhost:5000/users/")
+    axios.get("http://localhost:5000/users/")
       .then(res => {
         // Check if there's at least 1 user in the database
         if (res.data.length > 0) {
@@ -80,7 +80,7 @@ class CreateExercise extends Component {
     // Send the exercise data to the backend - POST request send exercise to the endpoint
     // It doesn't accept duplicate exercise. 
     // TODO: handle duplicate exercise error
-    Axios.post("http://localhost:5000/exercises/add", exercise)
+    axios.post("http://localhost:5000/exercises/add", exercise)
       .then(res => console.log(res.data));
 
     // Take the user back to the home page
@@ -97,10 +97,9 @@ class CreateExercise extends Component {
             <select ref="userInput" required className="form-control" value={this.state.username} onChange={this.onChangeUsername}>{
               this.state.users.map(user => 
                 (
-                <option key={user}
-                  id={user}
-                  value={user}>
-                  {user}</option>
+                  <option key={user} value={user}>
+                    {user}
+                  </option>
                 )
               )
             }
