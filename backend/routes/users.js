@@ -23,3 +23,6 @@ router.route('/add').post((req, res) => {
 });
 
 module.exports = router;
+
+// TODO: In a real production app, it would have a update and a delete
+// We can also do that in the mongoDB Atlas dashboard
