@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist//react-datepicker.css"
 
@@ -13,11 +14,30 @@ class CreateExercise extends Component {
     }
   
   componentDidMount() {
-    //  Hardcoded users - TODO: load users from database
-    this.setState({
-      users: ['test user'],
-      username: 'test user'
-    })
+    //  Get request to database 
+    Axios.get("http://localhost:5000/users/")
+      .then(res => {
+        // Check if there's at least 1 user in the database
+        if (res.data.length > 0) {
+          // Populate the this.state.users array with database users
+          this.setState({
+            users: res.data.map(user => user.username),
+            // Set username to the name of the first user 
+            username: res.data[0].username
+          })
+        }
+      })
+    
+    /* Database user format
+    - Access just to the username field: res.data.map(user => user.username)
+    
+    {
+      "_id":{"$oid":"5d1c4af634019169f344604d"},
+      "username":"beau",
+      "createdAt":{"$date":{"$numberLong":"1562135286872"}},
+      "updatedAt":{"$date":{"$numberLong":"1562135286872"}},
+      "__v":{"$numberInt":"0"}}
+    */
   }
   
   // When someone enters the username in the form - onChangeUsername is triggered
@@ -50,12 +70,18 @@ class CreateExercise extends Component {
 
     const exercise = {
       username: this.state.username,
-      description: this.state.discription,
+      description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
     }
 
     console.log(exercise);
+    
+    // Send the exercise data to the backend - POST request send exercise to the endpoint
+    // It doesn't accept duplicate exercise. 
+    // TODO: handle duplicate exercise error
+    Axios.post("http://localhost:5000/exercises/add", exercise)
+      .then(res => console.log(res.data));
 
     // Take the user back to the home page
     window.location = "/";
