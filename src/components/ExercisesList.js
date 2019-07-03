@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
 import axios from "axios";
 import Exercise from "./Exercise";
 
@@ -33,7 +32,8 @@ class ExercisesList extends Component {
       .then(res => {
         this.setState({
           exercises: res.data
-        })
+        });
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   }
@@ -42,7 +42,8 @@ class ExercisesList extends Component {
   getExerciseList() {
     return this.state.exercises.map(currentExercise => {
       return <Exercise
-        exercise={currentExercise} deleteExercise={this.deleteExercise}
+        exercise={currentExercise}
+        deleteExercise={this.deleteExercise}
         key={currentExercise._id}
       />
     })
