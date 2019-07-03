@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class CreateUser extends Component {
   // Add states equal to the fields of the mongoDB document and an extra users
@@ -22,7 +23,11 @@ class CreateUser extends Component {
 
     console.log(user);
 
-    // Set the username to an empty string to. TODO: Connect to the database
+    // Send the user data to the backend - POST request send user to the endpoint
+    // It doesn't accept duplicate user name. TODO: handle this error
+    axios.post("http://localhost:5000/users/add", user)
+      .then(res => console.log(res.data))
+
     this.setState({
       username: ""
     })
