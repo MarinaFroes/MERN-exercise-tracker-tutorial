@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import DatePicker from "./DatePicker";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist//react-datepicker.css"
 
 class CreateExercise extends Component {
     // Add states equal to the fields of the mongoDB document and an extra users
