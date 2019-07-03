@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
+import Exercise from "./Exercise";
 
 class ExercisesList extends Component {
   state = {
@@ -8,7 +9,7 @@ class ExercisesList extends Component {
   }
 
   deleteExercise = id => {
-    Axios.delete(`http://localhost:5000/exercises/${id}`)
+    axios.delete(`http://localhost:5000/exercises/${id}`)
       .then(res => console.log(res.data));
     this.setState({
       // Filter only exercises with a different id than the deleted exercise and save it to this.state.exercises array
@@ -28,13 +29,23 @@ class ExercisesList extends Component {
     */
 
   componentDidMount() {
-    Axios.get("http://localhost:5000/exercises/")
+    axios.get("http://localhost:5000/exercises/")
       .then(res => {
         this.setState({
           exercises: res.data
         })
       })
       .catch(err => console.log(err));
+  }
+
+  // TODO: Create Exercise component
+  getExerciseList() {
+    return this.state.exercises.map(currentExercise => {
+      return <Exercise
+        exercise={currentExercise} deleteExercise={this.deleteExercise}
+        key={currentExercise._id}
+      />
+    })
   }
 
   render() {
