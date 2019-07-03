@@ -68,7 +68,7 @@ class CreateExercise extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Username:</label>
-            <select ref="userInput" required className="form-control" value={this.state.username} onCHange={this.onChangeUsername}>{
+            <select ref="userInput" required className="form-control" value={this.state.username} onChange={this.onChangeUsername}>{
               this.state.users.map(user => 
                 (
                 <option key={user}
@@ -102,7 +102,6 @@ class CreateExercise extends Component {
           </div>
           <div className="form-group">
             <label>Date:</label>
-            {/*  TODO: Create DatePicker */}
             <DatePicker
               selected={this.state.date}
               onChange={this.onChangeDate}
