@@ -1,5 +1,5 @@
 
-![Logo]("./src/images/logo.png") 
+![Logo](./src/images/logo.png) 
 # MERN Exercise Tracker Tutorial
 
 ## Motivation
@@ -8,7 +8,7 @@
 
 ## Screenshots
 
-![screenshot]("./src/images/screenshot.png")
+![screenshot](./src/images/screenshot.png)
 
 ## Tech/framework used
 
