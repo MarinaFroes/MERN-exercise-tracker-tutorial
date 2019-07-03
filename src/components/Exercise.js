@@ -10,7 +10,7 @@ const Exercise = ({ exercise, deleteExercise }) => (
     <td>
       <Link to={`/edit/${exercise._id}`}>
         edit
-      </Link> | <button type="button" onClick={() => deleteExercise(exercise._id)}>delete</button>
+      </Link> | <button type="button" className="btn btn-link" onClick={() => deleteExercise(exercise._id)}>delete</button>
     </td>
   </tr>
 )
