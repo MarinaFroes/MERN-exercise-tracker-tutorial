@@ -38,4 +38,4 @@ app.listen(port, () => {
   console.log(`Server is running on PORT: ${port}`);
 });
 
-// Start the server: 'nodemon server' in the terminal
+// Start the server: cd into backend and 'nodemon server' in the terminal
