@@ -21,7 +21,7 @@
 
 ## Installation and Use
 
-- Download the files, cd into directory and run:
+- Download the files, cd into root directory and run:
 ```bash
 # Install dependencies
 $ npm install
@@ -29,6 +29,19 @@ $ npm install
 # Run the app
 $ npm start
 ```
+
+- Cd into backend directory and run:
+```bash
+# Install dependencies
+$ npm install
+
+# Run the server
+$ nodemon server
+```
+- `Exercises`: you can see, edit and delete the list of exercises
+- `Create Exercise Log`: you can add a new exercise log
+- `Create User`: you can add a new user
+
 ## References
 
 - Based on the [Freecodecamp tutorial](https://www.youtube.com/watch?v=7CqJlxBYj-M&t=2416s) by Beau Carnes.
